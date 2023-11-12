@@ -68,19 +68,12 @@ function convertMs(ms) {
   const day = hour * 24;
 
   // Remaining days
-  const days = addStringZero(Math.floor(ms / day));
+  const days = Math.floor(ms / day);
   // Remaining hours
-  const hours = addStringZero(Math.floor((ms % day) / hour));
+  const hours = Math.floor((ms % day) / hour);
   // Remaining minutes
-  const minutes = addStringZero(Math.floor(((ms % day) % hour) / minute));
+  const minutes = Math.floor(((ms % day) % hour) / minute);
   // Remaining seconds
-  const seconds = addStringZero(
-    Math.floor((((ms % day) % hour) % minute) / second)
-  );
-
+  const seconds = Math.floor((((ms % day) % hour) % minute) / second);
   return { days, hours, minutes, seconds };
-}
-function addStringZero(value) {
-  return String(value);
-  //   .padStart(2, '0');
 }
