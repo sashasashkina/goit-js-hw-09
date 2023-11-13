@@ -22,11 +22,13 @@ function timerForColorChange() {
 
 function startColorChange() {
   timerForColorChange();
-  changeBtn(stopBtn, startBtn);
+
+  changeBtn(startBtn, stopBtn);
 }
 function stoptColorChange() {
   clearInterval(timeR);
-  changeBtn(startBtn, stopBtn);
+
+  changeBtn(stopBtn, startBtn);
 }
 
 function changeBtn(startBtn, stopBtn) {

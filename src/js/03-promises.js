@@ -1,21 +1,3 @@
-function createPromise(position, delay) {
-  const shouldResolve = Math.random() > 0.3;
-  const PromiseObj = {
-    position,
-    delay,
-  };
-
-  return new Promise((resolve, reject) => {
-    setTimeout(() => {
-      if (shouldResolve) {
-        resolve(PromiseObj);
-      } else {
-        reject(PromiseObj);
-      }
-    }, delay);
-  });
-}
-
 import { Notify } from 'notiflix/build/notiflix-notify-aio';
 
 const form = document.querySelector('.form');
@@ -47,20 +29,20 @@ function onFormSubmit(e) {
   }
 }
 
-// function createPromise(position, delay) {
-//   const shouldResolve = Math.random() > 0.3;
-//   const PromiseObj = {
-//     position,
-//     delay,
-//   };
+function createPromise(position, delay) {
+  const shouldResolve = Math.random() > 0.3;
+  const promiseObj = {
+    position,
+    delay,
+  };
 
-//   return new Promise((resolve, reject) => {
-//     setTimeout(() => {
-//       if (shouldResolve) {
-//         resolve(PromiseObj);
-//       } else {
-//         reject(PromiseObj);
-//       }
-//     }, delay);
-//   });
-// }
+  return new Promise((resolve, reject) => {
+    setTimeout(() => {
+      if (shouldResolve) {
+        resolve(promiseObj);
+      } else {
+        reject(promiseObj);
+      }
+    }, delay);
+  });
+}
