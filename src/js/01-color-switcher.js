@@ -22,16 +22,14 @@ function timerForColorChange() {
 
 function startColorChange() {
   timerForColorChange();
-
-  stopBtn.removeAttribute('disabled');
-  startBtn.setAttribute('disabled', true);
+  changeBtn(stopBtn, startBtn);
 }
 function stoptColorChange() {
   clearInterval(timeR);
-
-  stopBtn.setAttribute('disabled', true);
-  startBtn.removeAttribute('disabled');
+  changeBtn(startBtn, stopBtn);
 }
-// function changeBtn(firstBtn, secondBtn) {
 
-// }
+function changeBtn(startBtn, stopBtn) {
+  startBtn.disabled = true;
+  stopBtn.disabled = false;
+}
