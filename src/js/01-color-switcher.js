@@ -32,3 +32,6 @@ function stoptColorChange() {
   stopBtn.setAttribute('disabled', true);
   startBtn.removeAttribute('disabled');
 }
+// function changeBtn(firstBtn, secondBtn) {
+
+// }
