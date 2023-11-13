@@ -7,12 +7,6 @@ form.addEventListener('submit', onFormSubmit);
 function onFormSubmit(e) {
   e.preventDefault();
 
-  // if (e.currentTarget.delay.value < 0 || e.currentTarget.amount.value <= 0) {
-  //   return Notify.warning(
-  //     'Delay step and amount values must be positive numbers and the amount value must be more than zero'
-  //   );
-  // }
-
   let delay = Number(e.currentTarget.delay.value);
   const step = Number(e.currentTarget.step.value);
   const amount = Number(e.currentTarget.amount.value);
