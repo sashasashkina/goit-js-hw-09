@@ -28,13 +28,13 @@ const options = {
     } else {
       newData = selectedDates[0];
       startBtn.removeAttribute('disabled');
-      startBtn.addEventListener('click', timerOn);
       dateInput.style.borderColor = '#569ff7';
     }
   },
 };
 
 flatpickr('#datetime-picker', options);
+startBtn.addEventListener('click', timerOn);
 
 function timerOn() {
   timeR = setInterval(() => {
@@ -55,10 +55,10 @@ function timerOn() {
 }
 
 function appClockInterface({ days, hours, minutes, seconds }) {
-  daysEl.textContent = days;
-  hoursEl.textContent = hours;
-  minutesEl.textContent = minutes;
-  secondsEl.textContent = seconds;
+  daysEl.textContent = addLeadingZero(days);
+  hoursEl.textContent = addLeadingZero(hours);
+  minutesEl.textContent = addLeadingZero(minutes);
+  secondsEl.textContent = addLeadingZero(seconds);
 }
 function convertMs(ms) {
   // Number of milliseconds per unit of time
@@ -68,19 +68,17 @@ function convertMs(ms) {
   const day = hour * 24;
 
   // Remaining days
-  const days = addLeadingZero(Math.floor(ms / day));
+  const days = Math.floor(ms / day);
   // Remaining hours
-  const hours = addLeadingZero(Math.floor((ms % day) / hour));
+  const hours = Math.floor((ms % day) / hour);
   // Remaining minutes
-  const minutes = addLeadingZero(Math.floor(((ms % day) % hour) / minute));
+  const minutes = Math.floor(((ms % day) % hour) / minute);
   // Remaining seconds
-  const seconds = addLeadingZero(
-    Math.floor((((ms % day) % hour) % minute) / second)
-  );
+  const seconds = Math.floor((((ms % day) % hour) % minute) / second);
 
   return { days, hours, minutes, seconds };
 }
 
 function addLeadingZero(value) {
-  return String(value).padStart(2, '0');
+  return `${value}`.padStart(2, '0');
 }
